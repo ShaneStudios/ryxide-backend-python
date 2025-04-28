@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ryxide-python-executor # You can name this whatever you like
+    env: python # Specifies the environment
+    plan: free # Use the free instance type
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn main:app" # Use gunicorn to run the Flask app
+    envVars:
+      - key: PYTHON_VERSION # Optional: Specify Python version if needed
+        value: 3.11 # Or 3.10, 3.9 etc. Check Render's supported versions
